@@ -19,6 +19,11 @@ class Cat extends Pet {
 		System.out.println(name + "(이)가 야옹");
 	}
 }
+class Tiger extends Pet {
+	void cry() {
+		System.out.println(name + "(이)가 어흥");
+	}
+}
 
 public class TestAnimalInherit {
 
@@ -26,21 +31,82 @@ public class TestAnimalInherit {
 	// 상속은 한개만 가능 -> java, c#
 	public static void main(String[] args) {
 		
+		Dog dog = new Dog();
+		work(dog, "츄"); // work 는 static 이라서 이탤릭체로 되어있음 - 왜 static 이냐? : new 안붙였으니까
+		// dog.name = "츄";
+		// dog.eat();
+		// dog.bark();
+		System.out.println("===================================");
+		
+		
+		Cat cat = new Cat();
+		work(cat, "네로");
+		// nero.name = "네로";
+		// nero.eat();
+		// nero.meow();
+		
+		System.out.println("===================================");
+		
+		Tiger tiger = new Tiger();
+		work(tiger, "큰냥이");
+		
+		System.out.println("===================================");
+		
 		Pet pet = new Pet();
 		pet.name = "뻐금이";
 		pet.eat();
+		// pet.bark(); // error
+		// pet.meow(); // error
 		
-		
-		Dog dog = new Dog();
-		dog.name = "츄";
-		dog.eat();
-		dog.bark();
-		
-		Cat nero = new Cat();
-		nero.name = "네로";
-		nero.eat();
-		nero.meow();
-
-	}
 
 }
+	// 한개의 work() 함수로 업무처리
+
+	private static void work(Pet pet, String name) {
+		pet.name = name;
+		System.out.println("Work: ");
+		pet.eat();
+		
+		if(pet instanceof Dog)
+		((Dog) pet).bark();
+		if(pet instanceof Cat)
+		((Cat) pet).meow();
+		if(pet instanceof Tiger)
+			((Tiger) pet).cry();
+		
+	}
+
+	/*
+	private static void work(Cat cat, String name) {
+		cat.name = name;
+		System.out.println("work: ");
+		cat.eat();
+		cat.meow();
+		
+	}
+
+	private static void work(Dog dog, String name) {
+		dog.name = name;
+		System.out.println("work: ");
+		dog.eat();
+		dog.bark();
+	}
+	*/
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
