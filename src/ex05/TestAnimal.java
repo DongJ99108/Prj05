@@ -7,13 +7,14 @@ abstract class Pet { // 한개 이상의 abstract 메소드가 있다면 abstrac
 	}
 	// 이럴때 abstract를 붙인다.
 	abstract void sound(); // 함수의 {}가 없으면 abstract 필수
+	// abstract 는 new 의 대상이 되지않는다
 }
 
 class Dog extends Pet {
 
 	// 코딩이 없는 함수({}가 없는 함수)를 상속받으면 반드시 자식이 코딩을 구현해야 한다. - 재정의(override)
 	// Add Unimplemented method
-	// @Override - 재정의 한다
+	@Override // 재정의 한다
 	void sound() {
 		System.out.println(name + "(이)가 멍멍");
 		
@@ -31,7 +32,7 @@ class Cat extends Pet {
 	
 }
 
-
+// 오버라이드와 오버로딩 둘다 다형성 구현하는데에 쓰임
 public class TestAnimal {
 
 	public static void main(String[] args) {

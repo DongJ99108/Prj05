@@ -70,9 +70,14 @@ public class TestMember {
 		mList[1]       = new Member("정연", "jungyeon", "jungyeon@jyp.com", 2011);
 		mList[2]       = new Member("채영", "chaeyeong", "chaeyeong@jyp.com", 2013);
 		
-		mList[0].info();
-		mList[1].info();
-		mList[2].info();
+		// mList[0].info();
+		// mList[1].info();
+		// mList[2].info();
+		
+		for (int i = 0; i < mList.length; i++) {
+			Member member = mList[i];
+			member.info();
+		}
 		
 		
 	}
